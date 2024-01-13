@@ -60,13 +60,6 @@ class DataTransformer:
         }
         return stats_sheets
 
-    def save_to_excel(self, pivot_table, stats_df, output_file_path):
-        with pd.ExcelWriter(output_file_path) as writer:
-            pivot_table.to_excel(
-                writer, sheet_name="Pivot Table", index=True, na_rep=""
-            )
-            stats_df.to_excel(writer, sheet_name="Stats", index=False)
-
     def save_to_excel(self, pivot_table, stats_sheets, output_file_path):
         with pd.ExcelWriter(output_file_path) as writer:
             pivot_table.to_excel(
